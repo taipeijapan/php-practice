@@ -1,7 +1,7 @@
 <?php
 // Q1 変数と文字列
 $name = "堀家";
-echo '私の名前は「'.$name.'」です。';
+echo '私の名前は「' . $name . '」です。';
 echo "\n";
 
 // Q2 四則演算
@@ -10,6 +10,7 @@ echo $num / 2;
 echo "\n";
 
 // Q3 日付操作
+date_default_timezone_set('Asia/Tokyo');
 $date = date('Y年m月d日 H時i分s秒');
 echo '現在時刻は、'. $date .'です。';
 echo "\n";
@@ -18,10 +19,12 @@ echo "\n";
 $device = 'Windows';
 if ($device === 'Windows') {
   echo 'Windowsを使用しています。';
-} elseif ($device === 'Mac') {
-  echo 'Macを使用しています。';
 } else {
-  echo 'どちらでもありません。';
+  if ($device === 'Mac') {
+    echo 'Macを使用しています。';
+  } else {
+    echo 'どちらでもありません。';
+  }
 }
 echo "\n";
 
@@ -39,7 +42,7 @@ $kanto_prefectures = [
     '千葉県',
     '群馬県',
     '埼玉県',
-    '茨城県'
+    '茨城県',
 ];
 echo $kanto_prefectures[2]. 'と' . $kanto_prefectures[3] . 'は関東地方の都道府県です。';
 echo "\n";
@@ -56,7 +59,7 @@ $officeAddress = [
     '愛知県' => '名古屋市',
     '大阪府' => '大阪市 '
     ];
-foreach ($officeAddress as $a => $city) {
+foreach ($officeAddress as $city) {
     echo $city;
     echo "\n";
 }
@@ -78,16 +81,18 @@ foreach ($officeAddress as $prefecture_name => $city) {
 }
 
 // Q10 関数-1
-function hello($name) {
+function hello($name)
+{
     return $name.'さん、こんにちは。'."\n";
 }
 echo hello('堀家');
 echo hello('藤森');
 
 // Q11 関数-2
-function calcTaxInPrice($price) {
+function calcTaxInPrice($price)
+{
     $tax_rate = 10;
-    return $price + ($price * $tax_rate * 0.01) ;
+    return $price * ( 1 + $tax_rate / 100 );
 }
 $price = 1000;
 $taxInPrice = calcTaxInPrice($price);
@@ -95,7 +100,8 @@ $taxInPrice = calcTaxInPrice($price);
 echo $price.'円の商品の税込価格は'.$taxInPrice.'円です。';
 echo "\n";
 // Q12 関数とif文
-function distinguishNum($num) {
+function distinguishNum($num)
+{
     if ($num % 2 === 1) {
         return $num .'は奇数です。';
     } elseif ($num % 2 === 0) {
@@ -108,7 +114,8 @@ echo "\n";
 echo distinguishNum(22);
 echo "\n";
 // Q13 関数とswitch文
-function evaluateGrade($grade) {
+function evaluateGrade($grade)
+{
     switch($grade) {
         case 'A':
         case 'B':
