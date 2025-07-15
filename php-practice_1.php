@@ -120,13 +120,10 @@ function evaluateGrade($grade)
         case 'A':
         case 'B':
             return '合格です。';
-            break;
         case 'C':
             return '合格ですが追加課題があります。';
-            break;
         case 'D':
             return '不合格です。';
-            break;
         default:
             return '判定不明です。講師に問い合わせてください。';
     }
