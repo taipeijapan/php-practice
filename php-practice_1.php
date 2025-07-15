@@ -16,17 +16,17 @@ echo '現在時刻は、'. $date .'です。';
 echo "\n";
 
 // Q4 条件分岐-1 if文
-$device = 'Windows';
-// 文字列以外の値が入っていた場合は何もしない
-if (!is_string($device)) return;
-if ($device !== 'Windows' && $device !== 'Mac') {
-    echo 'WindowsでもMacでもありません。';
+$device = 'Mac';
+function checkDevice($targetDevice) {
+    // 引数が文字列でない場合は何もしない
+    if (!is_string($targetDevice)) return;
+    if ($targetDevice === 'Windows' || $targetDevice === 'Mac') {
+        echo $targetDevice . 'を使用しています。';
+    } else {
+        echo 'どちらでもありません。';
+    }
 }
-if ($device === 'Windows') {
-    echo 'Windowsを使用しています。';
-} else {
-    echo 'Macを使用しています。';
-}
+checkDevice($device);
 echo "\n";
 
 // Q5 条件分岐-2 三項演算子
