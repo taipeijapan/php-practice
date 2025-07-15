@@ -45,9 +45,7 @@ foreach ($personalInfos as $index => $info) {
 // 問題3
 $ageList = [25, 30, 18];
 foreach ($personalInfos as $index => $info) {
-    $info['age'] = $ageList[$index];
-    // foreachが値渡しのため、$personalInfosを更新
-    $personalInfos[$index] = $info;
+    $personalInfos[$index]['age'] = $ageList[$index];
 }
 var_dump($personalInfos);
 
