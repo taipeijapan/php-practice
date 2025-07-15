@@ -17,14 +17,15 @@ echo "\n";
 
 // Q4 条件分岐-1 if文
 $device = 'Windows';
+// 文字列以外の値が入っていた場合は何もしない
+if (!is_string($device)) return;
+if ($device !== 'Windows' && $device !== 'Mac') {
+    echo 'WindowsでもMacでもありません。';
+}
 if ($device === 'Windows') {
-  echo 'Windowsを使用しています。';
+    echo 'Windowsを使用しています。';
 } else {
-  if ($device === 'Mac') {
     echo 'Macを使用しています。';
-  } else {
-    echo 'どちらでもありません。';
-  }
 }
 echo "\n";
 
